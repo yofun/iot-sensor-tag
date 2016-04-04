@@ -28,7 +28,7 @@ properties.parse('./config.properties', {path: true}, function(err, cfg) {
 	}
 	macUtil.getMac(function(err, macAddress) {
 		if (err) throw err;
-		var deviceId = macAddress.replace(/-/gi, '');
+		var deviceId = macAddress.replace(/:|-/gi, '');
 		console.log('Device MAC Address: ' + deviceId);
 
 		if(cfg.id != deviceId) {
